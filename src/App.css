@@ -1,0 +1,32 @@
+.containers {
+  height: 100%;
+  width: 100%;
+  margin: 30px 60px;
+  position: relative;
+}
+
+.container {
+  border-radius: 12px;
+  height: 500px;
+  width: 100%;
+}
+
+.container.one {
+  background-color: #b185db;
+  transform: rotate(-6deg);
+}
+
+.container.two {
+  background-color: #d2b7e5;
+  transform: rotate(-3deg);
+  position: absolute;
+  top: 0;
+}
+
+.container.three {
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #dec9e9;
+  position: absolute;
+  top: 0;
+}

@@ -1,4 +1,14 @@
 body {
   margin: 0;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+  background: #f4effa;
+  min-height: 100vh;
+  padding: 30px;
 }
