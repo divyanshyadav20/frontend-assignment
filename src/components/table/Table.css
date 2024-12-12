@@ -1,6 +1,42 @@
-#projects-table {
+#table-container {
   background: white;
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  padding: 10px;
+}
+
+.wrapper {
+  padding: 10px;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.content-table thead tr {
+  background-color: #ebe0ff;
+  text-align: left;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
 }
