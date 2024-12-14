@@ -43,7 +43,7 @@ function App() {
         initial={{ rotate: 0 }}
         animate={{ rotate: -6 }}
         transition={{
-          delay: 0.8,
+          delay: 0.6,
           duration: 1,
           ease: "easeOut",
         }}
@@ -53,20 +53,12 @@ function App() {
         initial={{ rotate: 0 }}
         animate={{ rotate: -3 }}
         transition={{
-          delay: 0.6,
+          delay: 0.3,
           duration: 0.8,
           ease: "easeOut",
         }}
       />
-      <motion.div
-        className="container three"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 1,
-          ease: "easeOut",
-        }}
-      >
+      <div className="container three">
         <div className="table-container">
           <div className="wrapper">
             <Table columns={HEADERS} loading={loading} data={currentItems} />
@@ -79,7 +71,7 @@ function App() {
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
