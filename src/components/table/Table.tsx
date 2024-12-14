@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import useFetchProjects from "../../hooks/useFetchProjects";
 import "./Table.css";
 
-const Table = () => {
-  const { fetchProjects, loading } = useFetchProjects();
+type Props = {
+  headers: string[];
+};
+
+const Table = ({ headers }: Props) => {
+  const { fetchProjects, loading, projects } = useFetchProjects();
 
   useEffect(() => {
     fetchProjects();
@@ -13,31 +17,24 @@ const Table = () => {
     <div id="table-container">
       <div className="wrapper">
         {loading ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            Loading...
-          </div>
+          <div className="loading-container">Loading...</div>
         ) : (
           <table className="content-table">
             <thead>
               <tr>
-                <th>S.No.</th>
-                <th>Percentage funded</th>
-                <th>Amount pledged</th>
+                {headers.map((col, index) => (
+                  <th key={index}>{col}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>20%</td>
-                <td>2000</td>
-              </tr>
+              {projects.map((item) => (
+                <tr key={item["s.no"]}>
+                  <td>{item["s.no"]}</td>
+                  <td>{item["percentage.funded"]}%</td>
+                  <td>{item["amt.pledged"]}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         )}

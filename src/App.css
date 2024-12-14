@@ -30,3 +30,16 @@
   position: absolute;
   top: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .containers {
+    margin: 15px 20px; /* Reduced margins for mobile */
+  }
+}
+
+/* Add even smaller margins for very small screens if needed */
+@media screen and (max-width: 480px) {
+  .containers {
+    margin: 10px;
+  }
+}
