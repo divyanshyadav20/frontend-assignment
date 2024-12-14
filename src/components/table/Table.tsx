@@ -1,18 +1,18 @@
-import { useEffect } from "react";
-import useFetchProjects from "../../hooks/useFetchProjects";
+import { Project } from "../../types/project";
 import "./Table.css";
 
-type Props = {
-  headers: string[];
+type Column = {
+  key: string;
+  header: string;
 };
 
-const Table = ({ headers }: Props) => {
-  const { fetchProjects, loading, projects } = useFetchProjects();
+type Props = {
+  columns: Column[];
+  data: Project[];
+  loading: boolean;
+};
 
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-
+const Table = ({ columns, loading, data }: Props) => {
   return (
     <div id="table-container">
       <div className="wrapper">
@@ -22,17 +22,19 @@ const Table = ({ headers }: Props) => {
           <table className="content-table">
             <thead>
               <tr>
-                {headers.map((col, index) => (
-                  <th key={index}>{col}</th>
+                {columns.map((col) => (
+                  <th key={col.key}>{col.header}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {projects.map((item) => (
-                <tr key={item["s.no"]}>
-                  <td>{item["s.no"]}</td>
-                  <td>{item["percentage.funded"]}%</td>
-                  <td>{item["amt.pledged"]}</td>
+              {data.map((row, index) => (
+                <tr key={index}>
+                  {columns.map((column) => (
+                    <td key={`${index}-${column.key}`}>
+                      {row[column.key as keyof Project]}
+                    </td>
+                  ))}
                 </tr>
               ))}
             </tbody>
