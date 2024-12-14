@@ -1,49 +1,76 @@
 # Frontend Assignment
 
+## Overview
 
-## Assignment
+This project is a frontend application designed to fetch and display details of highly-rated Kickstarter projects using AJAX calls. The application showcases the ability to create a responsive and user-friendly interface while adhering to best practices in web development.
 
-You are required to fetch the details of the highly-rated kickstarter projects by implementing an AJAX call to their APIs.
+The assignment is hosted on vercel - https://frontend-assignment-omega-sepia.vercel.app/
 
-Use the web API (link : https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json) ) to fetch the details of specific projects.
+## Features
 
-## Minimum Requirements
+- **Data Fetching:** Utilizes the Kickstarter API to retrieve project details.
+- **Dynamic Table:** Displays project information in a structured table format, including:
+  - S.No.
+  - Percentage funded
+  - Amount pledged
+- **Pagination:** Implements pagination to navigate through project records, with a maximum of 5 records displayed per page.
+- **Responsive Design:** The UI is designed to be aesthetically pleasing and functional across various devices.
+- **Accessibility:** The application includes features to enhance accessibility for all users.
+- **Animation:** There is an initial animation of rotating the blocks on initial render.
 
-1. Create a table and list the following three attributes for all the projects:
-    * S.No.
-    * Percentage funded
-    * Amount pledged
+## Technologies Used
 
-1. Ensure that the UI is aesthetically pleasing to gain extra points.
-1. Implement pagination with maximum 5 records per page.
+- **Frontend:** React (with hooks)
+- **Styling:** Raw CSS
+- **State Management:** React's built-in state management
+- **Data Fetching:** Axios for making API calls
+- **Testing:** Jest for unit testing
 
-### Expected Output format
+## Getting Started
 
-| **S.No.** | **Percentage funded** | **Amount pledged** |
-|-----------|-----------------------|--------------------|
-| 0         | 186                   | 15283              |
+### Prerequisites
 
+- Node.js (version 14 or higher)
+- npm (Node package manager)
 
-## Good to have
+### Installation
 
-1. Unit tests.
-1. Accessibility.
+1. **Clone the repository:**
 
+   ```bash
+   git clone <repository-url>
+   cd frontend-assignment
+   ```
 
-## Steps for submission
+2. **Install dependencies:**
 
-1. Fork this repo.
-1. Do changes to the above assignment.
-1. Email the assignment back to us with:
-    1. Link of the open source repo.
-    1. Link of the assignment hosted online. (You can use any free tools to host this assignment, eg. vercel, netlify or heroku). It should be accessible online for atleast 7 days.
+   ```bash
+   npm install
+   ```
 
+3. **Run the development server:**
 
-## Frameworks Allowed
-1. React/Vanilla JS for JavaScript
-1. No framework for CSS. Only Raw CSS is allowed.
+   ```bash
+   npm run dev
+   ```
 
-## Note
+4. **Open your browser and navigate to:**
+   ```
+   http://localhost:3000
+   ```
 
-1. Result on platforms like codesandbox, replit are not accepted. 
-1. Private unaccessible links will lead to rejection.
+## Usage
+
+- Upon loading, the application fetches project data from the provided API.
+- Users can view the project details in a table format.
+- Pagination controls allow users to navigate through multiple pages of project data.
+- The selected page is preserved on refresh.
+- Initial loading animations.
+
+## Testing
+
+To run the unit tests, use the following command:
+
+```bash
+npm test
+```
