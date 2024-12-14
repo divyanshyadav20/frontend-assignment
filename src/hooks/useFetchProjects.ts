@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const useFetchProjects = () => {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,7 @@ const useFetchProjects = () => {
 
       setProjects(data);
     } catch (error) {
+      toast.error("Error fetching projects!");
       console.log(error);
     } finally {
       setLoading(false);

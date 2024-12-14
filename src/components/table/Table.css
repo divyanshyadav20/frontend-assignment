@@ -55,3 +55,30 @@
 .content-table tbody tr:nth-child(even) {
   background-color: #f7f5fd;
 }
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.empty-state p {
+  color: gray;
+  font-size: 18px;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

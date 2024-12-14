@@ -1,6 +1,7 @@
 import "./Pagination.css";
 
 type Props = {
+  loading: boolean;
   totalItems: number;
   itemsPerPage: number;
   currentPage: number;
@@ -8,6 +9,7 @@ type Props = {
 };
 
 const Pagination = ({
+  loading,
   totalItems,
   itemsPerPage,
   currentPage,
@@ -57,6 +59,10 @@ const Pagination = ({
 
     return pageNumbers;
   };
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <div aria-label="Pagination" className="pagination">

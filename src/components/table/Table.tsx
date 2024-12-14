@@ -1,4 +1,5 @@
 import { Project } from "../../types/project";
+import { CircleAlertIcon, LoaderCircle } from "lucide-react";
 import "./Table.css";
 
 type Column = {
@@ -16,7 +17,16 @@ const Table = ({ columns, loading, data }: Props) => {
   if (loading) {
     return (
       <div role="status" aria-live="polite" className="loading-container">
-        Loading...
+        <LoaderCircle className="animate-spin" />
+      </div>
+    );
+  }
+
+  if (!data.length) {
+    return (
+      <div className="empty-state">
+        <CircleAlertIcon size={40} color="gray" />
+        <p>No data</p>
       </div>
     );
   }

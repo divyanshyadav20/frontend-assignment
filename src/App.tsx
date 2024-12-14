@@ -3,6 +3,7 @@ import "./App.css";
 import Table from "./components/table/Table";
 import useFetchProjects from "./hooks/useFetchProjects";
 import Pagination from "./components/pagination/Pagination";
+import { Toaster } from "sonner";
 
 const ITEMS_PER_PAGE = 5;
 const HEADERS = [
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="containers">
+      <Toaster richColors />
       <div className="container one" />
       <div className="container two" />
       <div className="container three">
@@ -33,6 +35,7 @@ function App() {
           <div className="wrapper">
             <Table columns={HEADERS} loading={loading} data={currentItems} />
             <Pagination
+              loading={loading}
               totalItems={projects.length}
               itemsPerPage={ITEMS_PER_PAGE}
               currentPage={currentPage}
