@@ -79,10 +79,11 @@
     font-size: 13px;
   }
 
-  /* Hide "Previous" and "Next" text on small screens, keep only icons */
-  .pagination button:first-child span,
-  .pagination button:last-child span {
-    display: none;
+  /* Keep Previous/Next buttons fully visible */
+  .pagination button:first-child,
+  .pagination button:last-child {
+    min-width: 28px;
+    padding: 0 8px;
   }
 }
 
@@ -97,5 +98,12 @@
     height: 24px;
     padding: 0 6px;
     font-size: 12px;
+  }
+
+  /* Keep Previous/Next buttons fully visible */
+  .pagination button:first-child,
+  .pagination button:last-child {
+    min-width: 24px;
+    padding: 0 6px;
   }
 }
