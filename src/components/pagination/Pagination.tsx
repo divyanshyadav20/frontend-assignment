@@ -1,3 +1,4 @@
+import { MoveLeft, MoveRight } from "lucide-react";
 import "./Pagination.css";
 
 type Props = {
@@ -71,6 +72,7 @@ const Pagination = ({
         disabled={currentPage === 1}
         aria-label="Go to previous page"
       >
+        <MoveLeft />
         <span>Previous</span>
       </button>
 
@@ -97,6 +99,7 @@ const Pagination = ({
         aria-label="Go to next page"
       >
         <span>Next</span>
+        <MoveRight />
       </button>
     </div>
   );
