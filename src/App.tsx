@@ -13,13 +13,22 @@ const HEADERS = [
 ];
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return Number(params.get("page")) || 1;
+  });
   const { fetchProjects, loading, projects } = useFetchProjects();
 
   // Calculate pagination
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
   const currentItems = projects.slice(indexOfFirstItem, indexOfLastItem);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("page", currentPage.toString());
+    window.history.pushState({}, "", `?${params.toString()}`);
+  }, [currentPage]);
 
   useEffect(() => {
     fetchProjects();
