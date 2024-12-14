@@ -3,6 +3,7 @@ import "./App.css";
 import Table from "./components/table/Table";
 import useFetchProjects from "./hooks/useFetchProjects";
 import Pagination from "./components/pagination/Pagination";
+import { motion } from "framer-motion";
 import { Toaster } from "sonner";
 
 const ITEMS_PER_PAGE = 5;
@@ -37,9 +38,35 @@ function App() {
   return (
     <div className="containers">
       <Toaster richColors />
-      <div className="container one" />
-      <div className="container two" />
-      <div className="container three">
+      <motion.div
+        className="container one"
+        initial={{ rotate: 0 }}
+        animate={{ rotate: -6 }}
+        transition={{
+          delay: 0.8,
+          duration: 1,
+          ease: "easeOut",
+        }}
+      />
+      <motion.div
+        className="container two"
+        initial={{ rotate: 0 }}
+        animate={{ rotate: -3 }}
+        transition={{
+          delay: 0.6,
+          duration: 0.8,
+          ease: "easeOut",
+        }}
+      />
+      <motion.div
+        className="container three"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 1,
+          ease: "easeOut",
+        }}
+      >
         <div className="table-container">
           <div className="wrapper">
             <Table columns={HEADERS} loading={loading} data={currentItems} />
@@ -52,7 +79,7 @@ function App() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
