@@ -1,29 +1,101 @@
 .pagination {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  margin: 0 auto;
   justify-content: center;
-  margin-top: 20px;
+  width: fit-content;
+  flex-wrap: wrap;
 }
 
 .pagination button {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  background: white;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #666;
+  font-size: 14px;
   cursor: pointer;
-  border-radius: 4px;
-}
-
-.pagination button:disabled {
-  background: #f5f5f5;
-  cursor: not-allowed;
-}
-
-.pagination button.active {
-  background: #ebe0ff;
-  border-color: #6941c6;
-  color: #6941c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagination button:hover:not(:disabled) {
   background: #f5f5f5;
+}
+
+.pagination button.active {
+  background: #f0f0ff;
+  color: #b185db;
+  font-weight: 500;
+}
+
+/* Style for Previous/Next buttons */
+.pagination button:first-child,
+.pagination button:last-child {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #b185db;
+  font-weight: 500;
+}
+
+/* Disabled state for Previous/Next buttons */
+.pagination button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.pagination button:first-child:disabled,
+.pagination button:last-child:disabled {
+  color: #ccc;
+}
+
+.pagination .ellipsis {
+  color: #666;
+  padding: 0 4px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 640px) {
+  .pagination {
+    padding: 6px;
+    gap: 2px;
+  }
+
+  .pagination button {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  /* Hide "Previous" and "Next" text on small screens, keep only icons */
+  .pagination button:first-child span,
+  .pagination button:last-child span {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .pagination {
+    padding: 4px;
+    gap: 1px;
+  }
+
+  .pagination button {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 6px;
+    font-size: 12px;
+  }
 }
