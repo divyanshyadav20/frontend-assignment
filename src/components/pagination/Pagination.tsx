@@ -59,10 +59,11 @@ const Pagination = ({
   };
 
   return (
-    <div className="pagination">
+    <div aria-label="Pagination" className="pagination">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
+        aria-label="Go to previous page"
       >
         <span>Previous</span>
       </button>
@@ -75,6 +76,7 @@ const Pagination = ({
         ) : (
           <button
             key={page}
+            aria-label={`Go to page ${page}`}
             onClick={() => onPageChange(page as number)}
             className={currentPage === page ? "active" : ""}
           >
@@ -86,6 +88,7 @@ const Pagination = ({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
+        aria-label="Go to next page"
       >
         <span>Next</span>
       </button>

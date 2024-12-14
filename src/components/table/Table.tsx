@@ -14,11 +14,15 @@ type Props = {
 
 const Table = ({ columns, loading, data }: Props) => {
   if (loading) {
-    return <div className="loading-container">Loading...</div>;
+    return (
+      <div role="status" aria-live="polite" className="loading-container">
+        Loading...
+      </div>
+    );
   }
 
   return (
-    <table className="content-table">
+    <table className="content-table" aria-label="Projects data table">
       <thead>
         <tr>
           {columns.map((col) => (
